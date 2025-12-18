@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard - Wachemo University</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="../wcu-landing/logo2.png" alt="WCU Logo" height="40" class="me-2">
+                <div>
+                    <div class="fw-bold">Wachemo University</div>
+                    <small class="text-light opacity-75">Faculty Portal</small>
+                </div>
+            </a>
+            
+            <div class="d-flex align-items-center">
+                <div class="dropdown me-3">
+                    <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell me-1"></i>
+                        <span class="badge bg-warning text-dark">2</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                        <li><h6 class="dropdown-header">Notifications</h6></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-clock text-warning me-2"></i>Grade submission deadline tomorrow</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-users text-info me-2"></i>Department meeting scheduled</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center" href="#">View All Notifications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle me-2"></i>Dr. Ahmed Ali
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i>Help</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-5 pt-3">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+                    <div class="faculty-info mb-4">
+                        <div class="text-center">
+                            <div class="faculty-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 class="mt-2 mb-1">Dr. Ahmed Ali</h5>
+                            <p class="text-muted mb-1">FAC/CS/001</p>
+                            <p class="text-muted small">Computer Science Department</p>
+                            <div class="badge bg-success">Active Faculty</div>
+                        </div>
+                    </div>
+                    
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#dashboard" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                        </a>
+                        <a class="nav-link" href="#courses" data-section="courses">
+                            <i class="fas fa-book me-2"></i>My Courses
+                        </a>
+                        <a class="nav-link" href="#students" data-section="students">
+                            <i class="fas fa-users me-2"></i>Students
+                        </a>
+                        <a class="nav-link" href="#grades" data-section="grades">
+                            <i class="fas fa-chart-bar me-2"></i>Grade Management
+                        </a>
+                        <a class="nav-link" href="#exams" data-section="exams">
+                            <i class="fas fa-laptop me-2"></i>Examinations
+                        </a>
+                        <a class="nav-link" href="#materials" data-section="materials">
+                            <i class="fas fa-folder me-2"></i>Course Materials
+                        </a>
+                        <a class="nav-link" href="#reports" data-section="reports">
+                            <i class="fas fa-chart-line me-2"></i>Reports
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" class="content-section active">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h2 class="mb-1">Welcome back, Dr. Ahmed!</h2>
+                            <p class="text-muted">Manage your courses and students effectively</p>
+                        </div>
+                        <div class="text-end">
+                            <div class="text-muted small">Academic Year</div>
+                            <div class="fw-bold">2024/25 - Semester 2</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Stats -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center bg-primary text-white">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number text-white">4</div>
+                                    <div class="dashboard-stat-label text-white opacity-75">Active Courses</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center bg-success text-white">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number text-white">156</div>
+                                    <div class="dashboard-stat-label text-white opacity-75">Total Students</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center bg-warning text-dark">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number">23</div>
+                                    <div class="dashboard-stat-label">Pending Grades</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center bg-info text-white">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number text-white">2</div>
+                                    <div class="dashboard-stat-label text-white opacity-75">Upcoming Exams</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card mb-4">
+                        <h5 class="mb-3">Quick Actions</h5>
+                        <div class="row g-3">
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-primary w-100 py-3" data-section="exams">
+                                    <i class="fas fa-plus d-block mb-2"></i>
+                                    <small>Create Exam</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-success w-100 py-3" data-section="grades">
+                                    <i class="fas fa-edit d-block mb-2"></i>
+                                    <small>Enter Grades</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-info w-100 py-3" data-section="materials">
+                                    <i class="fas fa-upload d-block mb-2"></i>
+                                    <small>Upload Material</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-warning w-100 py-3" data-section="students">
+                                    <i class="fas fa-check d-block mb-2"></i>
+                                    <small>Attendance</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-secondary w-100 py-3" data-section="students">
+                                    <i class="fas fa-envelope d-block mb-2"></i>
+                                    <small>Send Message</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-dark w-100 py-3" data-section="reports">
+                                    <i class="fas fa-chart-bar d-block mb-2"></i>
+                                    <small>View Reports</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <!-- My Courses -->
+                        <div class="col-lg-8">
+                            <div class="dashboard-card">
+                                <h5 class="mb-3">My Courses - Current Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Course Code</th>
+                                                <th>Course Title</th>
+                                                <th>Students</th>
+                                                <th>Schedule</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>CS301</strong></td>
+                                                <td>Data Structures</td>
+                                                <td>45</td>
+                                                <td>MWF 8:00-9:00</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CS401</strong></td>
+                                                <td>Software Engineering</td>
+                                                <td>34</td>
+                                                <td>TTh 10:00-11:30</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CS501</strong></td>
+                                                <td>Advanced Algorithms</td>
+                                                <td>23</td>
+                                                <td>MWF 2:00-3:00</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CS502</strong></td>
+                                                <td>Machine Learning</td>
+                                                <td>18</td>
+                                                <td>TTh 2:00-3:30</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pending Tasks -->
+                        <div class="col-lg-4">
+                            <div class="dashboard-card">
+                                <h5 class="mb-3">Pending Tasks</h5>
+                                <div class="task-list">
+                                    <div class="task-item">
+                                        <div class="task-priority high"></div>
+                                        <div class="task-content">
+                                            <h6>Grade CS301 Midterm</h6>
+                                            <p class="text-muted small">45 submissions pending</p>
+                                            <small class="text-danger">Due: Tomorrow</small>
+                                        </div>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-priority medium"></div>
+                                        <div class="task-content">
+                                            <h6>CS401 Project Review</h6>
+                                            <p class="text-muted small">34 proposals to review</p>
+                                            <small class="text-warning">Due: Jan 30</small>
+                                        </div>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-priority low"></div>
+                                        <div class="task-content">
+                                            <h6>Upload CS501 Materials</h6>
+                                            <p class="text-muted small">Week 3 lecture notes</p>
+                                            <small class="text-info">Due: Feb 1</small>
+                                        </div>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-priority medium"></div>
+                                        <div class="task-content">
+                                            <h6>Semester Report</h6>
+                                            <p class="text-muted small">Course completion report</p>
+                                            <small class="text-warning">Due: Feb 5</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Courses Section -->
+                <div id="courses-section" class="content-section">
+                    <h2 class="mb-4">Course Management</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="dashboard-card">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>CS301 - Data Structures</h5>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                
+                                <div class="course-stats mb-3">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <div class="stat-number">45</div>
+                                            <div class="stat-label">Students</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="stat-number">87%</div>
+                                            <div class="stat-label">Attendance</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="stat-number">3.2</div>
+                                            <div class="stat-label">Avg Grade</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-actions">
+                                    <button class="btn btn-primary btn-sm me-2">View Students</button>
+                                    <button class="btn btn-outline-primary btn-sm me-2">Materials</button>
+                                    <button class="btn btn-outline-success btn-sm">Grades</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="dashboard-card">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>CS401 - Software Engineering</h5>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                
+                                <div class="course-stats mb-3">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <div class="stat-number">34</div>
+                                            <div class="stat-label">Students</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="stat-number">92%</div>
+                                            <div class="stat-label">Attendance</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="stat-number">3.5</div>
+                                            <div class="stat-label">Avg Grade</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="course-actions">
+                                    <button class="btn btn-primary btn-sm me-2">View Students</button>
+                                    <button class="btn btn-outline-primary btn-sm me-2">Materials</button>
+                                    <button class="btn btn-outline-success btn-sm">Grades</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grade Management Section -->
+                <div id="grades-section" class="content-section">
+                    <h2 class="mb-4">Grade Management</h2>
+                    
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>CS301 - Data Structures | Grade Entry</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm me-2">Import Grades</button>
+                                <button class="btn btn-success btn-sm">Submit to Department</button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>Name</th>
+                                        <th>Midterm (/40)</th>
+                                        <th>Final (/60)</th>
+                                        <th>Total (/100)</th>
+                                        <th>Grade</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>WCU/001234</td>
+                                        <td>Abebe Kebede</td>
+                                        <td><input type="number" class="form-control form-control-sm" value="35" max="40"></td>
+                                        <td><input type="number" class="form-control form-control-sm" value="52" max="60"></td>
+                                        <td><strong>87</strong></td>
+                                        <td><span class="badge bg-success">A</span></td>
+                                        <td><i class="fas fa-check text-success"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>WCU/001235</td>
+                                        <td>Meron Tadesse</td>
+                                        <td><input type="number" class="form-control form-control-sm" value="38" max="40"></td>
+                                        <td><input type="number" class="form-control form-control-sm" value="55" max="60"></td>
+                                        <td><strong>93</strong></td>
+                                        <td><span class="badge bg-success">A</span></td>
+                                        <td><i class="fas fa-check text-success"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>WCU/001236</td>
+                                        <td>Sara Mohammed</td>
+                                        <td><input type="number" class="form-control form-control-sm" value="32" max="40"></td>
+                                        <td><input type="number" class="form-control form-control-sm" value="48" max="60"></td>
+                                        <td><strong>80</strong></td>
+                                        <td><span class="badge bg-primary">B+</span></td>
+                                        <td><i class="fas fa-check text-success"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h6>Grade Statistics</h6>
+                                        <p class="mb-1">Average: <strong>86.7</strong></p>
+                                        <p class="mb-1">Highest: <strong>93</strong></p>
+                                        <p class="mb-1">Lowest: <strong>80</strong></p>
+                                        <p class="mb-0">Pass Rate: <strong>100%</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h6>Grade Distribution</h6>
+                                        <p class="mb-1">A: <strong>15 students</strong></p>
+                                        <p class="mb-1">B: <strong>20 students</strong></p>
+                                        <p class="mb-1">C: <strong>10 students</strong></p>
+                                        <p class="mb-0">F: <strong>0 students</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other sections would be implemented similarly -->
+                <div id="students-section" class="content-section">
+                    <h2 class="mb-4">Student Management</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Student management interface will be displayed here.</p>
+                    </div>
+                </div>
+                
+                <div id="exams-section" class="content-section">
+                    <h2 class="mb-4">Examination Management</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Exam creation and management interface will be displayed here.</p>
+                    </div>
+                </div>
+                
+                <div id="materials-section" class="content-section">
+                    <h2 class="mb-4">Course Materials</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Course materials management interface will be displayed here.</p>
+                    </div>
+                </div>
+                
+                <div id="reports-section" class="content-section">
+                    <h2 class="mb-4">Reports & Analytics</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Reports and analytics interface will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

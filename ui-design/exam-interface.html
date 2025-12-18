@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam - CS301 Data Structures | Wachemo University</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/exam.css">
+</head>
+<body class="exam-mode">
+    <!-- Exam Header -->
+    <div class="exam-header fixed-top">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="exam-info">
+                        <h5 class="mb-0">CS301 - Data Structures Midterm</h5>
+                        <small class="text-muted">Student: Abebe Kebede (WCU/2024/001234)</small>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="exam-timer">
+                        <div class="timer-display" id="examTimer">01:45:32</div>
+                        <small class="text-muted">Time Remaining</small>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="exam-controls">
+                        <span class="security-status">
+                            <i class="fas fa-shield-alt text-success me-1"></i>
+                            <small>Monitoring Active</small>
+                        </span>
+                        <button class="btn btn-outline-danger btn-sm ms-2" onclick="submitExam()">
+                            <i class="fas fa-paper-plane me-1"></i>Submit Exam
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exam Content -->
+    <div class="exam-container">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Question Navigation Sidebar -->
+                <div class="col-lg-3 col-md-4">
+                    <div class="question-navigator">
+                        <div class="navigator-header">
+                            <h6>Question Navigator</h6>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-primary" style="width: 30%"></div>
+                            </div>
+                            <small class="text-muted">15 of 50 questions answered</small>
+                        </div>
+                        
+                        <div class="question-grid">
+                            <div class="question-number answered" onclick="goToQuestion(1)">1</div>
+                            <div class="question-number answered" onclick="goToQuestion(2)">2</div>
+                            <div class="question-number answered" onclick="goToQuestion(3)">3</div>
+                            <div class="question-number answered" onclick="goToQuestion(4)">4</div>
+                            <div class="question-number answered" onclick="goToQuestion(5)">5</div>
+                            <div class="question-number answered" onclick="goToQuestion(6)">6</div>
+                            <div class="question-number answered" onclick="goToQuestion(7)">7</div>
+                            <div class="question-number answered" onclick="goToQuestion(8)">8</div>
+                            <div class="question-number answered" onclick="goToQuestion(9)">9</div>
+                            <div class="question-number answered" onclick="goToQuestion(10)">10</div>
+                            <div class="question-number answered" onclick="goToQuestion(11)">11</div>
+                            <div class="question-number answered" onclick="goToQuestion(12)">12</div>
+                            <div class="question-number answered" onclick="goToQuestion(13)">13</div>
+                            <div class="question-number answered" onclick="goToQuestion(14)">14</div>
+                            <div class="question-number current" onclick="goToQuestion(15)">15</div>
+                            <div class="question-number flagged" onclick="goToQuestion(16)">16</div>
+                            <div class="question-number" onclick="goToQuestion(17)">17</div>
+                            <div class="question-number" onclick="goToQuestion(18)">18</div>
+                            <div class="question-number" onclick="goToQuestion(19)">19</div>
+                            <div class="question-number" onclick="goToQuestion(20)">20</div>
+                            <!-- More question numbers... -->
+                        </div>
+                        
+                        <div class="navigator-legend mt-3">
+                            <div class="legend-item">
+                                <div class="question-number answered small"></div>
+                                <small>Answered</small>
+                            </div>
+                            <div class="legend-item">
+                                <div class="question-number current small"></div>
+                                <small>Current</small>
+                            </div>
+                            <div class="legend-item">
+                                <div class="question-number flagged small"></div>
+                                <small>Flagged</small>
+                            </div>
+                            <div class="legend-item">
+                                <div class="question-number small"></div>
+                                <small>Not Answered</small>
+                            </div>
+                        </div>
+                        
+                        <div class="navigator-actions mt-3">
+                            <button class="btn btn-outline-warning btn-sm w-100 mb-2">
+                                <i class="fas fa-flag me-1"></i>Review Flagged (1)
+                            </button>
+                            <button class="btn btn-outline-info btn-sm w-100">
+                                <i class="fas fa-save me-1"></i>Save & Exit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Question Area -->
+                <div class="col-lg-9 col-md-8">
+                    <div class="question-container">
+                        <div class="question-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5>Question 15 of 50</h5>
+                                    <div class="question-meta">
+                                        <span class="badge bg-primary">Multiple Choice</span>
+                                        <span class="badge bg-info">4 Points</span>
+                                        <span class="auto-save-indicator">
+                                            <i class="fas fa-check-circle text-success me-1"></i>Auto-saved
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="btn btn-outline-warning btn-sm" onclick="flagQuestion()">
+                                        <i class="fas fa-flag me-1"></i>Flag Question
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="question-content">
+                            <div class="question-text">
+                                <p class="lead">Which of the following best describes a Binary Search Tree (BST)?</p>
+                                
+                                <div class="question-image mb-3">
+                                    <!-- Optional: Question image would go here -->
+                                </div>
+                                
+                                <div class="answer-options">
+                                    <div class="form-check answer-option">
+                                        <input class="form-check-input" type="radio" name="question15" id="q15a" value="A">
+                                        <label class="form-check-label" for="q15a">
+                                            A. A tree where each node has exactly two children
+                                        </label>
+                                    </div>
+                                    <div class="form-check answer-option">
+                                        <input class="form-check-input" type="radio" name="question15" id="q15b" value="B" checked>
+                                        <label class="form-check-label" for="q15b">
+                                            B. A tree where left child ≤ parent ≤ right child
+                                        </label>
+                                    </div>
+                                    <div class="form-check answer-option">
+                                        <input class="form-check-input" type="radio" name="question15" id="q15c" value="C">
+                                        <label class="form-check-label" for="q15c">
+                                            C. A tree that is always balanced
+                                        </label>
+                                    </div>
+                                    <div class="form-check answer-option">
+                                        <input class="form-check-input" type="radio" name="question15" id="q15d" value="D">
+                                        <label class="form-check-label" for="q15d">
+                                            D. A tree with maximum height of log n
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="explanation-area mt-4">
+                                    <label for="explanation" class="form-label">
+                                        <strong>Explanation (Optional):</strong>
+                                        <small class="text-muted">Provide additional explanation for your answer</small>
+                                    </label>
+                                    <textarea class="form-control" id="explanation" rows="3" 
+                                              placeholder="Enter your explanation here..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="question-navigation">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary" onclick="previousQuestion()">
+                                    <i class="fas fa-chevron-left me-1"></i>Previous
+                                </button>
+                                
+                                <div class="question-actions">
+                                    <button class="btn btn-outline-secondary me-2" onclick="clearAnswer()">
+                                        <i class="fas fa-eraser me-1"></i>Clear Answer
+                                    </button>
+                                    <button class="btn btn-outline-info" onclick="markForReview()">
+                                        <i class="fas fa-bookmark me-1"></i>Mark for Review
+                                    </button>
+                                </div>
+                                
+                                <button class="btn btn-primary" onclick="nextQuestion()">
+                                    Next <i class="fas fa-chevron-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Monitoring Overlay (Hidden) -->
+    <div class="security-overlay" id="securityOverlay" style="display: none;">
+        <div class="security-warning">
+            <div class="warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h4>Security Violation Detected</h4>
+            <p>You have switched tabs or lost focus. This action has been logged.</p>
+            <p><strong>Violations: <span id="violationCount">1</span>/3</strong></p>
+            <p class="text-danger">Warning: 3 violations will result in automatic exam submission.</p>
+            <button class="btn btn-warning" onclick="acknowledgeViolation()">
+                I Understand - Continue Exam
+            </button>
+        </div>
+    </div>
+
+    <!-- Exam Submission Modal -->
+    <div class="modal fade" id="submitModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Submit Exam</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="submission-summary">
+                        <h6>Exam Summary</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Total Questions:</strong> 50</li>
+                                    <li><strong>Answered:</strong> 15</li>
+                                    <li><strong>Flagged:</strong> 1</li>
+                                    <li><strong>Not Answered:</strong> 35</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Time Used:</strong> 14:28</li>
+                                    <li><strong>Time Remaining:</strong> 01:45:32</li>
+                                    <li><strong>Violations:</strong> 0</li>
+                                    <li><strong>Auto-saves:</strong> 15</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Warning:</strong> You have 35 unanswered questions. 
+                            Are you sure you want to submit your exam?
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="confirmSubmission">
+                            <label class="form-check-label" for="confirmSubmission">
+                                I confirm that I want to submit my exam. I understand that I cannot make changes after submission.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Continue Exam
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="finalSubmit()" disabled id="finalSubmitBtn">
+                        Submit Final Answers
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Face Verification Modal -->
+    <div class="modal fade" id="faceVerificationModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Identity Verification Required</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="verification-camera mb-3">
+                        <div class="camera-placeholder">
+                            <i class="fas fa-camera fa-3x text-muted"></i>
+                            <p class="mt-2">Position your face in the camera</p>
+                        </div>
+                    </div>
+                    <p class="text-muted">
+                        For security purposes, we need to verify your identity before continuing the exam.
+                    </p>
+                    <div class="verification-status">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Verifying...</span>
+                        </div>
+                        <p class="mt-2">Verifying identity...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/exam.js"></script>
+</body>
+</html>

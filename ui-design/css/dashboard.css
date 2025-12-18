@@ -433,3 +433,275 @@
         page-break-inside: avoid;
     }
 }
+
+/
+* Faculty and Admin Specific Styles */
+.faculty-avatar, .admin-avatar {
+    font-size: 4rem;
+    color: var(--success-color);
+    margin-bottom: 10px;
+}
+
+.admin-avatar {
+    color: var(--warning-color);
+}
+
+.bg-success {
+    background-color: #198754 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+/* Task List Styles */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: var(--light-color);
+    border-radius: 10px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.task-priority {
+    width: 4px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.task-priority.high {
+    background-color: var(--danger-color);
+}
+
+.task-priority.medium {
+    background-color: var(--warning-color);
+}
+
+.task-priority.low {
+    background-color: var(--success-color);
+}
+
+.task-content h6 {
+    margin-bottom: 5px;
+    color: var(--dark-color);
+    font-size: 0.95rem;
+}
+
+.task-content p {
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+
+/* Course Stats */
+.course-stats {
+    background: var(--light-color);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.course-stats .stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.course-stats .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+.course-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Activity Feed */
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: var(--light-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.activity-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.activity-content h6 {
+    margin-bottom: 5px;
+    color: var(--dark-color);
+    font-size: 0.95rem;
+}
+
+.activity-content p {
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+
+/* Metric Items */
+.metric-item {
+    margin-bottom: 15px;
+}
+
+.metric-item .progress {
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+.metric-card {
+    padding: 20px;
+    background: var(--light-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.metric-number {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-top: 5px;
+}
+
+/* Grade Entry Inputs */
+.table input[type="number"] {
+    max-width: 80px;
+}
+
+/* Navbar Color Variations */
+.navbar.bg-success {
+    background-color: #198754 !important;
+}
+
+.navbar.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.navbar.bg-warning .navbar-brand .fw-bold,
+.navbar.bg-warning .navbar-brand small {
+    color: #000 !important;
+}
+
+/* Progress Bar Variations */
+.progress-bar.bg-success {
+    background-color: var(--success-color) !important;
+}
+
+.progress-bar.bg-warning {
+    background-color: var(--warning-color) !important;
+}
+
+.progress-bar.bg-info {
+    background-color: #0dcaf0 !important;
+}
+
+.progress-bar.bg-danger {
+    background-color: var(--danger-color) !important;
+}
+
+/* Badge Variations */
+.badge.bg-success {
+    background-color: var(--success-color) !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--warning-color) !important;
+    color: #000 !important;
+}
+
+.badge.bg-info {
+    background-color: #0dcaf0 !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--danger-color) !important;
+}
+
+/* Responsive Adjustments for Faculty/Admin */
+@media (max-width: 768px) {
+    .faculty-avatar, .admin-avatar {
+        font-size: 3rem;
+    }
+    
+    .task-item, .activity-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .task-priority {
+        width: 100%;
+        height: 4px;
+    }
+    
+    .activity-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .course-actions {
+        flex-direction: column;
+    }
+    
+    .course-actions .btn {
+        width: 100%;
+    }
+}
+
+/* Print Styles for Reports */
+@media print {
+    .activity-feed,
+    .task-list {
+        page-break-inside: avoid;
+    }
+    
+    .metric-card {
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+}
