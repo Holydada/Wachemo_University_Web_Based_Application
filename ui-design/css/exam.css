@@ -1,13 +1,14 @@
 /* Online Exam Interface Styles */
 
+/* Using consistent colors from wcu-design-system.css */
 :root {
-    --exam-primary: #7a0a2d;
-    --exam-success: #10b981;
-    --exam-warning: #f59e0b;
-    --exam-danger: #ef4444;
-    --exam-info: #3b82f6;
-    --exam-bg: #f8fafc;
-    --exam-border: #e5e7eb;
+    --exam-primary: var(--maroon);
+    --exam-success: var(--success-color);
+    --exam-warning: var(--warning-color);
+    --exam-danger: var(--danger-color);
+    --exam-info: var(--info-color);
+    --exam-bg: var(--light-color);
+    --exam-border: var(--border-color);
 }
 
 /* Exam Mode Body */

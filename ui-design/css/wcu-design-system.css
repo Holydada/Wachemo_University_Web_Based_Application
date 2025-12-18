@@ -1,0 +1,264 @@
+/* Wachemo University Design System - Consistent Colors Across All Modules */
+
+:root {
+  /* Primary Brand Colors (from original landing page) */
+  --maroon: #7a0a2d;           /* Primary university color */
+  --ink: #0e2336;              /* Dark text color */
+  --text: #1b2430;             /* Body text color */
+  --muted: #f4f6f8;            /* Light background */
+  --line: #e9eef2;             /* Border color */
+  --footer: #0f1216;           /* Footer background */
+  
+  /* Extended Color Palette for System Modules */
+  --primary-color: #7a0a2d;    /* Same as maroon */
+  --secondary-color: #1e3a8a;  /* Navy blue for accents */
+  --accent-color: #f59e0b;     /* Amber for highlights */
+  --success-color: #10b981;    /* Emerald for success states */
+  --warning-color: #f59e0b;    /* Amber for warnings */
+  --danger-color: #ef4444;     /* Red for errors */
+  --info-color: #3b82f6;       /* Blue for information */
+  
+  /* Neutral Colors */
+  --dark-color: #1f2937;       /* Dark elements */
+  --light-color: #f8fafc;      /* Light backgrounds */
+  --border-color: #e5e7eb;     /* Borders and dividers */
+  --text-muted: #6b7280;       /* Muted text */
+  
+  /* Layout Variables */
+  --container: 1200px;         /* Max container width */
+  --radius: 12px;              /* Border radius */
+  --header-height: 132px;      /* Header height */
+  
+  /* Typography */
+  --ui: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  
+  /* Module-Specific Colors (using brand palette) */
+  --student-color: var(--maroon);
+  --faculty-color: #059669;     /* Green for faculty */
+  --admin-color: #f59e0b;       /* Amber for admin */
+  --exam-color: #1e40af;        /* Blue for exams */
+  --cafeteria-color: #dc2626;   /* Red for cafeteria */
+  --id-color: #7c3aed;          /* Purple for ID system */
+  --clearance-color: #ea580c;   /* Orange for clearance */
+  --library-color: #0891b2;     /* Cyan for library */
+  --dorm-color: #7c2d12;        /* Brown for dormitory */
+  --payment-color: #365314;     /* Dark green for payments */
+  --hr-color: #581c87;          /* Dark purple for HR */
+  --news-color: #be185d;        /* Pink for news */
+  --partnership-color: #1f2937; /* Dark gray for partnerships */
+}
+
+/* Global Styles Using Design System */
+body {
+  font-family: var(--ui);
+  color: var(--text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 700;
+  transition: 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--maroon);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  filter: brightness(0.95);
+}
+
+.btn.secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.btn.success {
+  background: var(--success-color);
+  color: #fff;
+}
+
+.btn.warning {
+  background: var(--warning-color);
+  color: #000;
+}
+
+.btn.danger {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+.btn.info {
+  background: var(--info-color);
+  color: #fff;
+}
+
+.btn.white {
+  background: #fff;
+  color: var(--maroon);
+  border-color: #fff;
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: currentColor;
+}
+
+/* Card System */
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+/* Module Color Classes */
+.student-theme { --module-color: var(--student-color); }
+.faculty-theme { --module-color: var(--faculty-color); }
+.admin-theme { --module-color: var(--admin-color); }
+.exam-theme { --module-color: var(--exam-color); }
+.cafeteria-theme { --module-color: var(--cafeteria-color); }
+.id-theme { --module-color: var(--id-color); }
+.clearance-theme { --module-color: var(--clearance-color); }
+.library-theme { --module-color: var(--library-color); }
+.dorm-theme { --module-color: var(--dorm-color); }
+.payment-theme { --module-color: var(--payment-color); }
+.hr-theme { --module-color: var(--hr-color); }
+.news-theme { --module-color: var(--news-color); }
+.partnership-theme { --module-color: var(--partnership-color); }
+
+/* Apply module colors */
+.module-themed {
+  border-top: 4px solid var(--module-color);
+}
+
+.module-themed .btn.primary {
+  background: var(--module-color);
+}
+
+.module-themed .text-primary {
+  color: var(--module-color);
+}
+
+/* Status Colors */
+.text-success { color: var(--success-color); }
+.text-warning { color: var(--warning-color); }
+.text-danger { color: var(--danger-color); }
+.text-info { color: var(--info-color); }
+.text-primary { color: var(--primary-color); }
+.text-muted { color: var(--text-muted); }
+
+.bg-success { background-color: var(--success-color); }
+.bg-warning { background-color: var(--warning-color); }
+.bg-danger { background-color: var(--danger-color); }
+.bg-info { background-color: var(--info-color); }
+.bg-primary { background-color: var(--primary-color); }
+.bg-light { background-color: var(--light-color); }
+
+/* Form Elements */
+.form-control {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: var(--ui);
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(122, 10, 45, 0.25);
+  outline: none;
+}
+
+/* Navigation Colors */
+.navbar.bg-primary { background-color: var(--primary-color) !important; }
+.navbar.bg-success { background-color: var(--success-color) !important; }
+.navbar.bg-warning { background-color: var(--warning-color) !important; }
+
+/* Badge System */
+.badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.bg-primary { background-color: var(--primary-color); color: white; }
+.badge.bg-success { background-color: var(--success-color); color: white; }
+.badge.bg-warning { background-color: var(--warning-color); color: black; }
+.badge.bg-danger { background-color: var(--danger-color); color: white; }
+.badge.bg-info { background-color: var(--info-color); color: white; }
+
+/* Alert System */
+.alert {
+  border-radius: 10px;
+  border: none;
+  padding: 16px 20px;
+}
+
+.alert-primary { background-color: rgba(122, 10, 45, 0.1); color: var(--primary-color); }
+.alert-success { background-color: rgba(16, 185, 129, 0.1); color: var(--success-color); }
+.alert-warning { background-color: rgba(245, 158, 11, 0.1); color: #92400e; }
+.alert-danger { background-color: rgba(239, 68, 68, 0.1); color: var(--danger-color); }
+.alert-info { background-color: rgba(59, 130, 246, 0.1); color: var(--info-color); }
+
+/* Progress Bars */
+.progress {
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--light-color);
+}
+
+.progress-bar {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar.bg-success { background-color: var(--success-color); }
+.progress-bar.bg-warning { background-color: var(--warning-color); }
+.progress-bar.bg-danger { background-color: var(--danger-color); }
+.progress-bar.bg-info { background-color: var(--info-color); }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .card {
+    margin-bottom: 16px;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e5e7eb;
+    --muted: #1f2937;
+    --line: #374151;
+    --light-color: #111827;
+  }
+}

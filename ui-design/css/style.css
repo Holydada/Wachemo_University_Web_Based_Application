@@ -1,17 +1,6 @@
 /* Custom CSS for Wachemo University Digital Campus */
 
-:root {
-    --primary-color: #7a0a2d;
-    --secondary-color: #1e3a8a;
-    --accent-color: #f59e0b;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --danger-color: #ef4444;
-    --dark-color: #1f2937;
-    --light-color: #f8fafc;
-    --text-color: #374151;
-    --border-color: #e5e7eb;
-}
+/* Colors are now defined in wcu-design-system.css for consistency */
 
 /* Override Bootstrap primary color */
 .bg-primary {

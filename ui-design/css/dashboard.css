@@ -438,12 +438,12 @@
 * Faculty and Admin Specific Styles */
 .faculty-avatar, .admin-avatar {
     font-size: 4rem;
-    color: var(--success-color);
+    color: var(--faculty-color);
     margin-bottom: 10px;
 }
 
 .admin-avatar {
-    color: var(--warning-color);
+    color: var(--admin-color);
 }
 
 .bg-success {
