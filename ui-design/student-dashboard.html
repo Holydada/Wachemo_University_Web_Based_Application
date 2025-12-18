@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Wachemo University</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="../wcu-landing/logo2.png" alt="WCU Logo" height="40" class="me-2">
+                <div>
+                    <div class="fw-bold">Wachemo University</div>
+                    <small class="text-light opacity-75">Student Portal</small>
+                </div>
+            </a>
+            
+            <div class="d-flex align-items-center">
+                <div class="dropdown me-3">
+                    <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell me-1"></i>
+                        <span class="badge bg-warning text-dark">3</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                        <li><h6 class="dropdown-header">Notifications</h6></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-graduation-cap text-primary me-2"></i>Grade for CS201 published</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-book text-warning me-2"></i>Library book due tomorrow</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-file-contract text-info me-2"></i>Cost-sharing agreement pending</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center" href="#">View All Notifications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle me-2"></i>Abebe Kebede
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i>Help</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-5 pt-3">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+                    <div class="student-info mb-4">
+                        <div class="text-center">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <h5 class="mt-2 mb-1">Abebe Kebede</h5>
+                            <p class="text-muted mb-1">WCU/2024/001234</p>
+                            <p class="text-muted small">Computer Science, 2nd Year</p>
+                            <div class="badge bg-success">Active Student</div>
+                        </div>
+                    </div>
+                    
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#dashboard" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                        </a>
+                        <a class="nav-link" href="#registration" data-section="registration">
+                            <i class="fas fa-user-plus me-2"></i>Registration
+                        </a>
+                        <a class="nav-link" href="#academics" data-section="academics">
+                            <i class="fas fa-graduation-cap me-2"></i>Academics
+                        </a>
+                        <a class="nav-link" href="#exams" data-section="exams">
+                            <i class="fas fa-laptop me-2"></i>Examinations
+                        </a>
+                        <a class="nav-link" href="#services" data-section="services">
+                            <i class="fas fa-concierge-bell me-2"></i>Campus Services
+                        </a>
+                        <a class="nav-link" href="#financial" data-section="financial">
+                            <i class="fas fa-credit-card me-2"></i>Financial Services
+                        </a>
+                        <a class="nav-link" href="#support" data-section="support">
+                            <i class="fas fa-life-ring me-2"></i>Support
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" class="content-section active">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h2 class="mb-1">Welcome back, Abebe!</h2>
+                            <p class="text-muted">Here's what's happening with your academic journey</p>
+                        </div>
+                        <div class="text-end">
+                            <div class="text-muted small">Last login</div>
+                            <div class="fw-bold">Today, 9:30 AM</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Stats -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number">3.45</div>
+                                    <div class="dashboard-stat-label">Current GPA</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number">45</div>
+                                    <div class="dashboard-stat-label">Credit Hours</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number">2</div>
+                                    <div class="dashboard-stat-label">Upcoming Exams</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="dashboard-card text-center">
+                                <div class="dashboard-stat">
+                                    <div class="dashboard-stat-number">450</div>
+                                    <div class="dashboard-stat-label">Meal Balance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card mb-4">
+                        <h5 class="mb-3">Quick Actions</h5>
+                        <div class="row g-3">
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-primary w-100 py-3" data-section="registration">
+                                    <i class="fas fa-user-plus d-block mb-2"></i>
+                                    <small>Register</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-success w-100 py-3" data-section="academics">
+                                    <i class="fas fa-chart-line d-block mb-2"></i>
+                                    <small>View Grades</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-info w-100 py-3" data-section="exams">
+                                    <i class="fas fa-laptop d-block mb-2"></i>
+                                    <small>Take Exam</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-warning w-100 py-3" data-section="financial">
+                                    <i class="fas fa-credit-card d-block mb-2"></i>
+                                    <small>Pay Fees</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-secondary w-100 py-3" data-section="services">
+                                    <i class="fas fa-id-card d-block mb-2"></i>
+                                    <small>Request ID</small>
+                                </button>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <button class="btn btn-outline-dark w-100 py-3" data-section="services">
+                                    <i class="fas fa-clipboard-check d-block mb-2"></i>
+                                    <small>Clearance</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <!-- Current Courses -->
+                        <div class="col-lg-8">
+                            <div class="dashboard-card">
+                                <h5 class="mb-3">Current Semester Courses</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Course Code</th>
+                                                <th>Course Title</th>
+                                                <th>Credits</th>
+                                                <th>Instructor</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>CS301</strong></td>
+                                                <td>Data Structures</td>
+                                                <td>4</td>
+                                                <td>Dr. Ahmed Ali</td>
+                                                <td><span class="badge bg-success">A</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>CS302</strong></td>
+                                                <td>Database Systems</td>
+                                                <td>3</td>
+                                                <td>Dr. Meron Tadesse</td>
+                                                <td><span class="badge bg-primary">B+</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>MATH201</strong></td>
+                                                <td>Calculus II</td>
+                                                <td>4</td>
+                                                <td>Dr. Sara Mohammed</td>
+                                                <td><span class="badge bg-info">B</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>ENG201</strong></td>
+                                                <td>Technical Writing</td>
+                                                <td>2</td>
+                                                <td>Dr. Dawit Haile</td>
+                                                <td><span class="badge bg-success">A-</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Upcoming Events -->
+                        <div class="col-lg-4">
+                            <div class="dashboard-card">
+                                <h5 class="mb-3">Upcoming Events</h5>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Jan 28</div>
+                                        <div class="timeline-content">
+                                            <h6>MATH201 Final Exam</h6>
+                                            <p class="text-muted small">9:00 AM - 11:00 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Jan 30</div>
+                                        <div class="timeline-content">
+                                            <h6>Registration Deadline</h6>
+                                            <p class="text-muted small">Next semester courses</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Feb 1</div>
+                                        <div class="timeline-content">
+                                            <h6>Cost-sharing Agreement</h6>
+                                            <p class="text-muted small">Signature required</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Registration Section -->
+                <div id="registration-section" class="content-section">
+                    <h2 class="mb-4">Course Registration</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="dashboard-card">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>Semester 2, 2024/25 Registration</h5>
+                                    <span class="badge bg-success">Registration Open</span>
+                                </div>
+                                
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Registration deadline: January 30, 2025. Late registration fee applies after this date.
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th width="50">Select</th>
+                                                <th>Course Code</th>
+                                                <th>Course Title</th>
+                                                <th>Credits</th>
+                                                <th>Prerequisites</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" checked>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS401</strong></td>
+                                                <td>Software Engineering</td>
+                                                <td>3</td>
+                                                <td>CS301, CS302</td>
+                                                <td><span class="badge bg-success">Available</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" checked>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS402</strong></td>
+                                                <td>Computer Networks</td>
+                                                <td>3</td>
+                                                <td>CS301</td>
+                                                <td><span class="badge bg-success">Available</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" disabled>
+                                                    </div>
+                                                </td>
+                                                <td><strong>CS403</strong></td>
+                                                <td>Machine Learning</td>
+                                                <td>3</td>
+                                                <td>CS303, MATH301</td>
+                                                <td><span class="badge bg-warning">Prerequisites Not Met</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <h6>Registration Summary</h6>
+                                                <p class="mb-1">Selected Courses: <strong>2</strong></p>
+                                                <p class="mb-1">Total Credits: <strong>6</strong></p>
+                                                <p class="mb-1">Registration Fee: <strong>2,500 ETB</strong></p>
+                                                <p class="mb-0">Late Fee: <strong>0 ETB</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex align-items-end">
+                                        <div class="w-100">
+                                            <button class="btn btn-primary w-100 mb-2">Save Draft</button>
+                                            <button class="btn btn-success w-100">Submit Registration</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="dashboard-card">
+                                <h5 class="mb-3">Registration Guidelines</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Minimum 12 credit hours required</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Maximum 18 credit hours allowed</li>
+                                    <li class="mb-2"><i class="fas fa-exclamation-triangle text-warning me-2"></i>Check prerequisites carefully</li>
+                                    <li class="mb-2"><i class="fas fa-clock text-info me-2"></i>Registration closes Jan 30</li>
+                                </ul>
+                                
+                                <div class="mt-4">
+                                    <h6>Need Help?</h6>
+                                    <p class="text-muted small">Contact your academic advisor for course selection guidance.</p>
+                                    <button class="btn btn-outline-primary btn-sm">Contact Advisor</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other sections would be implemented similarly -->
+                <div id="academics-section" class="content-section">
+                    <h2 class="mb-4">Academic Records</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Academic records and grade reports will be displayed here.</p>
+                    </div>
+                </div>
+                
+                <div id="exams-section" class="content-section">
+                    <h2 class="mb-4">Online Examinations</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Online examination interface will be displayed here.</p>
+                    </div>
+                </div>
+                
+                <div id="services-section" class="content-section">
+                    <h2 class="mb-4">Campus Services</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Campus services including cafeteria, library, and ID card services will be displayed here.</p>
+                    </div>
+                </div>
+                
+                <div id="financial-section" class="content-section">
+                    <h2 class="mb-4">Financial Services</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Financial services including fee payment and cost-sharing will be displayed here.</p>
+                    </div>
+                </div>
+                
+                <div id="support-section" class="content-section">
+                    <h2 class="mb-4">Help & Support</h2>
+                    <div class="dashboard-card">
+                        <p class="text-muted">Help and support resources will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

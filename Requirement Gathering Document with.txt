@@ -1,0 +1,342 @@
+     Requirement Gathering Document with our university Work flow
+   1. Functional Requirement
+
+       -Student Registration(
+             * to be registered as a freshman student you must pass the national exam ->must submit documents like grade 8 ministry document, grade 9-12 transcript, Grade 12 national exam Result then you will get a valid registration slip with Course list.
+           *After completing freshman course->choose a college(Engineering & Technology, Natural & Computational Sciences  ,Medicine & Health Sciences, Agriculture Sciences, Business & Economics, Social Science & Humanities, Education and Behavioral Sciences, School of Law, School of Veterinary Medicine) and department.
+ Note:some collegues have a coc exam before choosing a department. so the result of coc+freshman added to get some departments(like medicine,pharmacey,anesthesia,veternariy medicine,dental medicine under health college). other colleges have a one semester pre-courses before selectng a department after freshman ends(like Engineering & Technology collegue).
+
+*then after getting a department he must pass the minimum 1.75 to pass to the next semester and some courses serves as a pre-request for the next. 
+
+Note: Grade generation and decision is on the hands of registrar. 
+
+*there is a time block for registration in all semester. if someone pass that boundary there is a penalty fee .
+* the current flow is a student must come physically into department office for registration->the heads checks the identity by ID-> gives a slip to take to registrar.if he comes in time properly the registrar takes one part of the slip and   gives another part of the slip with a legal/working signature for a student ->the student turn back to department and the department gives a Grade report. if the student comes after the time table he/she must pay the penalty in university account-> by taking the receipt  he will go to the finance -> the finance gives a receipt to confirm his penalty. then come back to department -> he will take a slip for registration and the the normal process continues.  
+
+*assume there is a database that holds student info from the freshman up to the end year. 
+
+-on the slip there is a student information with courses list 
+-the Grade paper holds the Grade result of the semester and commulative result.
+
+
+)
+       -Cafeteria management(
+             -There are Governmental cafes in our university that provide foods for students 7day/week. but they don't ask you money to eat, you just show a valid printed card for checkers in gateway ->then the will mark by using pen->you will take your food and eat. there is a federal Government cost-sharing system(the government provides a food in free but the service is is calculated including dorm, water, internet, Food, education and finally after graduation the Government takes some money from your salary in each month. so students task is to sign on agreement paper in each year for the service they get. in that paper there is an option for the service you consumed in that year.
+*some students are Not consumer of A government cafe by providing their meal card, bank document/ national ID they will stop the food service from the government and they will receive 3000 birr per month in their provided account from the Government.
+
+Note: there are two id cards in our university The one is The greatest and general card like in card structure and the one is like yellow color normal paper uses for only food service.
+-there must be a function that shows list of foods per day for each 7 days.
+-An option to identify and register for a student as a government cafe user or Non-cafe(money receiver per month)
+-Cost sharing Form functionality service that students  sign per year for the service they get. 
+
+) 
+     
+)     
+       -Grade & Teacher management (
+          -department assigns courses for lectures
+        -they will have a page to insert grades then we need one column to auto calculate the grade before submission 
+        -they must be a system to detect and inform incomplete, NG cases when one students enrolled in other courses without prerequiste. by default we know that he can not enrolled in course that have a prerequiste.
+-forgot  passwords option(protects privacy)
+- must work in local and outside network(including offline access when light goes in pc)
+-after a lecture submit,department approves then goes to collegue,finally registrar. if departmenet declined the result it turns back to the lecture.(we have to add an option for a teacher to see approved submission without altering the data until it is declined)
+-if there is a problem in Grade case department commite sends a request to AC.
+                                        
+)
+      ✅ Online Exam Module – Core Flow & Features{
+
+1. Teacher Side
+
+Create Exam:
+
+Add questions in multiple formats: MCQ, fill-in-the-blank, short answer.
+Set exam start timestamp, duration, and allowed attempts.
+Enable proctoring options (face verification, tab-switch detection).
+
+
+During Exam:
+
+Monitor live dashboard: connected students, violations, remaining time.
+
+
+After Exam:
+
+Collect answers automatically.
+Grade answers (auto for objective, manual for subjective).
+Release results to students.
+Edit results if corrections are needed.
+Export grades to gradebook.
+
+
+
+
+2. Student Side
+
+Registration:
+
+Provide college, ID starts as WCU, full name, department, year, semester, photo.
+
+
+Login & Authentication:
+
+Select college, enter ID and name.
+Face verification based on registration photo.
+
+
+Exam Flow:
+
+Choose course → start exam when timestamp is reached.
+Full-screen enforced, countdown timer visible.
+Security: Detect tab switch, prevent copy/paste, warn on violations.
+Autosave answers every few seconds.
+If power or internet goes out, resume exam from last saved state.
+
+
+Submit Exam:
+
+Confirm submission.
+
+
+After Results Released:
+
+View marks and feedback.
+
+
+
+
+3. Core System Features
+
+Face Detection Before Exam: Verify identity + optional liveness check.
+Anti-Cheating:
+
+Detect tab switching and focus loss.
+Disable right-click, copy/paste, and print attempts.
+
+
+Countdown Timer: Server-time based to prevent manipulation.
+Outage Recovery:
+
+Autosave answers locally and on server.
+Resume exam with remaining time.
+
+
+Result Management:
+
+Teacher can release results and corrections.
+Students can view marks when announced.
+
+
+Audit & Security:
+
+Log all sensitive actions (result edits, violations).
+Encrypt sensitive data (photos, face embeddings).
+
+}
+
+
+       -Student ID Registration and Printing(
+          -there must a feature on the system for registrar to print students Digital main id for an admin. the id will have a university logo and name, students full name, sex, collegue, department,  section, academic year, with QR scan code for cafeteria services in the front part. on the back part there is  a confirmation that says "the bearer of this card is a student in wachemo university main campus", a seal of the university,name and signature of the admin ,web address and phone of a university and address of a university with pobox.
+-their must be an option to customize it for different branch for printing.
+-there must be an option for an admin to see a re-printing request from the student who lost their id and paid their penalty. if a student sent a request and paid it's penalty, he will print it again.
+- in the student side their must be an option to register for id by inserting their required fields based on what is mentioned on the admin side with their photo. then they will ask id then they will get it in physical from registrar for security purpose. if they lost their id then will pay their penalty in university bank account and they will attach it for the admin. after approval they will get theri id in physical. so their must be a feature for an admin the revoke an access from the cafeteria for the lost id. 
+- their must be another feature for normal paper color meal card that serves only for food in cafeteria. on that meal card there is a student information with photo attachment free space and a table with date to mark when students came to eat food 3 times within a day.
+-this id card is handled by student fundamental service. there must be a feature for their admin to send those id cards for each college and field department head. then the department head will print those cards and will give for students.
+-so the department head have an access for this feature.
+
+)
+       *Library Management Function(
+            -There are different libraries in our university, such as Health, Technology, Computational, Fresh, and Social libraries. The process works like this:
+
+A student comes to a library to read notes or other materials.
+If the student wants to use a physical book, they give their digital ID to the storekeeper.
+The storekeeper writes the student’s name and the book title on a paper and gives the book to the student.
+After the student finishes reading, they return the book to the storekeeper.
+The storekeeper manually searches for the student’s ID in the list, checks the name and book details, then removes the entry from the paper.
+Finally, the storekeeper returns the student’s ID.
+
+-so in this part to make this system best and powerful. we must fetch students information with their college from some module to this library management system.
+
+
+)
+       
+       -University News and Announcements Module(
+-there must be a feature in our system for an admin to post a news with detailed way and additional option to attach links and images from different sites.
+-there must be a feature for the admin to control the visibility of the news based on the user account. for example some news related to teachers not be visible for students and some news related to managements not be visible for teachers or students. but all can see some news related to students.
+-after the news is posted there must be an option for an admin to edit, delete or add a new post. 
+-after the news is posted it will appear in the home page 
+-there must be an auto translation from Amharic to English and from English to Amharic for the news part.
+
+
+
+)
+       -e-learning(with linking other Course givers link)(
+         -there must be a feature on the system for students to get courses from coursera and udemy by attaching their link on our system
+           
+         )
+       -e-payment(
+   -there must be online payment method for id and registration penalty.
+   -there must be a payment method for university sponsors.
+
+)
+       -Student Bad/Good history  functionality(
+        -there must be a feature in our system to show students behavior status in their dashboard.
+        -there must be a feature for  discipline admin related to students behavior to save and edit them in white, black, red-list
+       )
+
+ Dorm assignment functionality{
+   -our university dorm assigning process is, there are number of blocks(buildings). most of them are G+2 and they have room numbers. some rooms handle 4 students, some of them handle 6 students. 
+-in freshman time male and female students are assigned based on natural and social stream plus alphabetical order. but after getting department they will assigned by department type and alphabetical order. so in our system there must be a feature for an admin to control those things including editing and other useful features.
+-there must be a feature for students to see their dorm based on their department/stream and ID NO.
+-dormitory gives clearance to take your bag from university to home(in that file there is student name, department ,id and item type quantity, color, student and dormitory signature). this paper only useful to go out from university to your home for holiday and class-end.
+
+-there is another paper in which the dormitory put his signature and seal for main clearance system for one time only per year.
+
+
+
+}
+     -University partnership registration and communication page(
+         -there must be a feature in our system for registration with their note taking felid for other company that wants to be a partner to support the university Growth.
+         -an admin watches their full information and message . then sends a response for them in their created account in our system or in another ways.
+        -there must be a section in our home page that shows our university partner logos with a slide show.
+   
+              )
+       -HR registration and data handling functionality(
+        -there must be a feature in our system to handle different human resources like teachers, administrators, deans, president , university federal police community and other peoples in time of recruiting(registration) or releasing the system.
+-we have to think Ethiopian government  recruiting rules and forms in time of registration(for example teachers full name, experience and etc ).
+
+-there must be a feature that handles salary Growth for any kind of university staff when there is a new thing from A government. the admin can send a notification of salary growth for different sectors.
+              
+)
+     
+    -Student Clearance AND cost-sharing System(
+                          -on the main clearance paper that will be submitted to registrar after passing many steps. in this paper part 1 part there is personal information that students fill(full name, faculty, department, section, class year, reason for clearance). on the part 2 there are concerned bodies(department head, book store, library, sport store, dormitory , cafeteria, faculty dean, student s/s/d and registrar ) with their full name and signature . so the flow is students put their information in part one. then after that starting from department up to student s/s/d they will go physically and asks for signature and seal from concerned persons. then finally the will submit it for registrar. then after registrar  putting his signature and seal he will keep one copy in his hand and will give another for a student.
+-so our system must handle this case in super, smart, secured and fast way.
+-there must be a feature for students to click for clearance. then they will register with part one information including  photo. then there must be camera detection to for login before asking clearance in authentication phase before login for security purpose. after successful login they will ask a signature and seal one by one and waits approval.
+-there must be an admin access for all concerned bodies to approve students status. then after approval students finally submit the full finished form to registrar and wait final approval. after approval registrar sends the confirmation/failed message with downloadable link(in this part i planned to submit the final paper physically for registrar for security purpose we will choose the best one).
+
+                Cost-sharing(very crucial part related with Governement policy)
+{
+  Form Title
+
+Amharic: የኢትዮጵያ ፌዴራል መንግስት ዩኒቨርሲቲ ተማሪዎች የክፍያ አጋር ስምምነት ቅጽ
+
+English: Ethiopian Federal Government University Students Cost Sharing Agreement Form
+
+ 
+
+✅ Fields to Include
+
+ስም — Name
+
+የአባት ስም — Father’s Name
+
+የእናት ስም — Mother’s Name
+
+የትውልድ ቀን — Date of Birth
+
+ፆታ — Gender
+
+የትውልድ ቦታ — Place of Birth
+
+የመኖሪያ አድራሻ — Current Address
+
+ስልክ ቁጥር — Phone Number
+
+ዩኒቨርሲቲ ስም — University Name
+
+ክፍል / መድረክ — Department / Program
+
+የትምህርት ዓመት — Academic Year
+
+የተማሪ መለያ ቁጥር — Student ID
+
+ፎቶ — Photo Upload
+
+ስምምነት ተቀብያለሁ — Agreement Acknowledgment (Checkbox)
+
+ 
+
+✅ Agreement Text (Amharic + English)
+
+Amharic:
+እኔ ተማሪው በኢትዮጵያ ፌዴራል መንግስት ዩኒቨርሲቲ የትምህርት አገልግሎት በማግኘት ላይ እንደምታስፈልገኝ የክፍያ አጋር ስምምነት እቀበላለሁ። ከትምህርት ተማርኩ በኋላ በሕጋዊ መመሪያ መሠረት የትምህርት ወጪ አንድ ክፍል መክፈል እንደምክፈል እገባለሁ። የመክፈል መስፈርቶች፣ መጠን እና የመክፈል ዘዴ በኢትዮጵያ የክፍያ አጋር ሕግ መመሪያዎች ይመራሉ።
+
+English:
+I, the student, agree to the Cost Sharing Agreement as required by the Ethiopian Federal Government University system. After completing my education, I will repay a portion of the educational cost in accordance with the applicable legal directives. Repayment criteria, amount, and method shall be governed by the Ethiopian Cost Sharing regulations.
+
+ 
+
+✅ Signature Section
+
+የተማሪ ስም / Student Name
+
+ፊርማ / Signature
+
+ቀን / Date
+
+University Stamp
+
+ 
+
+✅ Tell Kiro AI
+
+Create a bilingual form with the above fields.
+
+Add agreement text block with a checkbox: “እቀበላለሁ / I accept”.
+
+Include photo upload and signature/date fields.
+
+Validate phone number (+251 or 0XXXXXXXXX), date format, and required fields.
+
+Store submissions in a structured format (Name, ID, University, Department, Agreement Accepted).
+
+
+-at this time we are submitting one copy to department and keeping one for us. so think smarter in our case 
+
+
+}
+      
+
+ 
+)
+
+   *very essential points:- the system must be responsive for all devices.
+                          -must have synchronization, data inconsistency handling and other things to have a quality software product.
+                         -you must visit for www.wcu.edu.et website as a reference for some information and checking current functionality. to make it more super and powerful our new updated software product.
+-think the linkage between each modules in our system in time of database design and other things to have a quality software product.
+
+
+
+  2.Non-functional Requirement
+    -Security
+    -Performance
+    -Scalability
+    -Usability
+    -Maintainability
+    -Reliability
+
+
+    
+                                     Design phase
+
+     1.system design{
+         -API we use(RESTful API)
+         -version control(git and GitHub)
+         - client(React, Bootstrap)
+         -Backend(node.js and express.js)
+         -database(MySQL)
+         -Authentication in login and other parts and role based access and role assigning  .
+         -deployment (distributed client, server and database system deployment by using my computer and free resources).
+         }
+
+  2. wireframe design{
+    
+
+
+}
+
+
+   
+3. UX/UI design 
+   
+
+
