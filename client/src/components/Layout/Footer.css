@@ -1,0 +1,166 @@
+/* Dashboard Footer Styles - WCU Design */
+.dashboard-footer {
+  background: #0f1216;
+  color: #d5dfea;
+  margin-top: auto;
+}
+
+.footer-content {
+  padding: 60px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand-section {
+  max-width: 400px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-brand img {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-brand .name {
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.footer-brand .subtitle {
+  font-size: 12px;
+  color: #93a4b5;
+  font-weight: 500;
+}
+
+.footer-desc {
+  color: #93a4b5;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 14px;
+}
+
+.dashboard-footer h4 {
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dashboard-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-footer li {
+  margin: 12px 0;
+}
+
+.dashboard-footer a {
+  color: #d5dfea;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.dashboard-footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dashboard-footer span {
+  color: #d5dfea;
+  font-size: 14px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 14px;
+  color: #d5dfea;
+}
+
+.contact-info svg {
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.contact-info a {
+  color: #d5dfea;
+}
+
+.contact-info a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0;
+  border-top: 1px solid #1f2937;
+  color: #93a4b5;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 40px 0 0;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  
+  .footer-brand img {
+    height: 40px;
+  }
+  
+  .footer-brand .name {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 32px 0 0;
+  }
+  
+  .contact-info p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,371 @@
+/* Login Page Styles - WCU Design */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-family: var(--ui);
+}
+
+/* Header */
+.login-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.login-header .container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.login-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.login-header .brand img {
+  height: 60px;
+  width: auto;
+}
+
+.login-header .brand .name {
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--maroon);
+}
+
+/* Main Content */
+.login-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  padding: 40px 20px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Login Card */
+.login-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.login-header-section {
+  background: linear-gradient(135deg, var(--maroon), #c42e53);
+  color: #fff;
+  text-align: center;
+  padding: 40px 32px;
+  position: relative;
+}
+
+.login-header-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.university-logo {
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.university-logo img {
+  height: 80px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.login-header-section h1 {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.login-header-section p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form */
+.login-form {
+  padding: 32px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  background: #fff;
+  color: var(--text);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(122, 10, 45, 0.1);
+}
+
+.form-control:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+}
+
+.form-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--maroon), #c42e53);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(122, 10, 45, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.alert-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.forgot-password {
+  text-align: center;
+}
+
+.forgot-password a {
+  color: var(--maroon);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Login Footer */
+.login-footer {
+  background: var(--muted);
+  padding: 20px 32px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.login-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.login-footer a {
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Demo Credentials */
+.demo-credentials {
+  background: #fff;
+  border: 2px solid #e0f2fe;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.demo-credentials h6 {
+  margin: 0 0 12px;
+  color: #0277bd;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.credentials-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.credentials-grid .label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.credentials-grid .value {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--muted);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.password-note {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .login-main {
+    padding: 20px 16px;
+  }
+  
+  .login-card {
+    border-radius: 16px;
+  }
+  
+  .login-header-section {
+    padding: 32px 24px;
+  }
+  
+  .university-logo img {
+    height: 60px;
+  }
+  
+  .login-header-section h1 {
+    font-size: 24px;
+  }
+  
+  .login-form {
+    padding: 24px;
+  }
+  
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .login-header .brand img {
+    height: 48px;
+  }
+  
+  .login-header .brand .name {
+    font-size: 18px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .form-control {
+    border-width: 3px;
+  }
+  
+  .btn-primary {
+    background: var(--maroon);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .spinner {
+    animation: none;
+  }
+}
