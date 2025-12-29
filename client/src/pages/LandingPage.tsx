@@ -56,8 +56,7 @@ const LandingPage: React.FC = () => {
             --radius: 12px;
             --footer: #0f1216;
             --header-height: 132px;
-            --hero-image-left: url(""); /* set to url('left-hero.jpg') */
-            --hero-image-left: url("https://www.wcu.edu.et/HomeBannerslidesImages/gate3.jpg"); /* set to url('left-hero.jpg') */
+            --hero-image-left: url("/hero-gate.jpg");
             --ui: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
               sans-serif;
             --display: "DM Serif Display", Georgia, "Times New Roman", serif;

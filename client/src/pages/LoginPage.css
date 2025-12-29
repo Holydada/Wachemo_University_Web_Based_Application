@@ -258,55 +258,39 @@
   text-decoration: underline;
 }
 
-/* Demo Credentials */
-.demo-credentials {
-  background: #fff;
-  border: 2px solid #e0f2fe;
+/* Security Notice */
+.security-notice {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #86efac;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.demo-credentials h6 {
-  margin: 0 0 12px;
-  color: #0277bd;
+.notice-content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.notice-content svg {
+  flex-shrink: 0;
+  color: #16a34a;
+  margin-top: 2px;
+}
+
+.notice-content h6 {
+  margin: 0 0 6px;
+  color: #15803d;
   font-weight: 700;
   font-size: 14px;
 }
 
-.credentials-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.credentials-grid > div {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.credentials-grid .label {
-  font-size: 12px;
-  color: #64748b;
-  font-weight: 500;
-}
-
-.credentials-grid .value {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 13px;
-  color: var(--ink);
-  background: var(--muted);
-  padding: 4px 8px;
-  border-radius: 6px;
-}
-
-.password-note {
+.notice-content p {
   margin: 0;
-  font-size: 12px;
-  color: #64748b;
-  text-align: center;
+  font-size: 13px;
+  color: #166534;
+  line-height: 1.5;
 }
 
 /* Responsive */

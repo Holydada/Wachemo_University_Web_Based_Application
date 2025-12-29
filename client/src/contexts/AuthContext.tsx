@@ -125,18 +125,25 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       // Mock authentication - replace with real API call
       await new Promise(resolve => setTimeout(resolve, 1500));
 
+      // Validate credentials (mock validation)
+      if (credentials.password !== 'demo123') {
+        throw new Error('Invalid credentials. Use password: demo123');
+      }
+
       // Mock user data based on WCU ID
       const mockUser: User = {
         id: 1,
         wcu_id: credentials.wcuId,
         email: `${credentials.wcuId.toLowerCase().replace(/\//g, '.')}@wcu.edu.et`,
         role: credentials.wcuId.includes('FAC') ? 'faculty' : 
-              credentials.wcuId.includes('ADMIN') ? 'admin' : 'student',
+              credentials.wcuId.includes('ADMIN') ? 'admin' : 
+              credentials.wcuId.includes('REG') ? 'registrar' : 'student',
         status: 'active',
         profile: {
           user_id: 1,
           full_name: credentials.wcuId.includes('FAC') ? 'Dr. Ahmed Mohammed' :
                     credentials.wcuId.includes('ADMIN') ? 'System Administrator' :
+                    credentials.wcuId.includes('REG') ? 'Registrar Office' :
                     'Abebe Kebede',
           father_name: 'Mohammed Ali',
           mother_name: 'Fatima Hassan',

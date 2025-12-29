@@ -56,7 +56,7 @@ const LandingPageExact: React.FC = () => {
             --radius: 12px;
             --footer: #0f1216;
             --header-height: 132px;
-            --hero-image-left: url("https://www.wcu.edu.et/HomeBannerslidesImages/gate3.jpg");
+            --hero-image-left: url("/hero-gate.jpg");
             --ui: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
             --display: "DM Serif Display", Georgia, "Times New Roman", serif;
             --hdrShift: 0%;
@@ -130,6 +130,13 @@ const LandingPageExact: React.FC = () => {
             border: 1px solid var(--line);
             background: #fff;
             color: var(--ink);
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+          }
+          .icon-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
           }
 
           .site-header {
@@ -216,6 +223,11 @@ const LandingPageExact: React.FC = () => {
             display: flex;
             align-items: center;
             gap: 18px;
+          }
+          .mast-tools {
+            display: flex;
+            align-items: center;
+            gap: 12px;
           }
           .brand {
             display: flex;
@@ -647,10 +659,34 @@ const LandingPageExact: React.FC = () => {
             .home-btn {
               display: none;
             }
+            .mast-tools {
+              gap: 8px;
+            }
+            .icon-btn {
+              width: 40px;
+              height: 40px;
+            }
           }
           @media (max-width: 760px) {
             :root {
               --header-height: 116px;
+            }
+            .topbar {
+              padding: 0 16px;
+            }
+            .mast-left {
+              gap: 12px;
+            }
+            .mast-tools {
+              gap: 6px;
+            }
+            .icon-btn {
+              width: 36px;
+              height: 36px;
+            }
+            .icon-btn svg {
+              width: 16px;
+              height: 16px;
             }
             .hero-grid {
               grid-template-columns: 1fr;
@@ -857,35 +893,35 @@ const LandingPageExact: React.FC = () => {
               <div className="card-media" style={{background: 'linear-gradient(135deg, #e8f4fd, #ffffff)'}}></div>
               <div className="card-body">
                 <h3>Student Registration</h3>
-                <p>Online registration system for freshman and continuing students with course selection.</p>
+                <p>Complete your course registration online for freshman and continuing students with real-time course selection.</p>
               </div>
             </Link>
             <Link className="card" to="/login">
               <div className="card-media" style={{background: 'linear-gradient(135deg, #f0f9ff, #ffffff)'}}></div>
               <div className="card-body">
-                <h3>Cafeteria Services</h3>
-                <p>Government-subsidized meal services and cost-sharing program management.</p>
+                <h3>Dining Services</h3>
+                <p>Access government-subsidized meal plans and manage your cost-sharing program enrollment.</p>
               </div>
             </Link>
             <Link className="card" to="/login">
               <div className="card-media" style={{background: 'linear-gradient(135deg, #f7fee7, #ffffff)'}}></div>
               <div className="card-body">
-                <h3>Library System</h3>
-                <p>Access to Health, Technology, Computational, and Social libraries with digital resources.</p>
+                <h3>University Libraries</h3>
+                <p>Browse our Health, Technology, Computational, and Social Science libraries with extensive digital resources.</p>
               </div>
             </Link>
             <Link className="card" to="/login">
               <div className="card-media" style={{background: 'linear-gradient(135deg, #fef3c7, #ffffff)'}}></div>
               <div className="card-body">
                 <h3>Student ID Services</h3>
-                <p>Digital ID card registration, printing, and replacement services.</p>
+                <p>Request, print, and manage your digital student identification card.</p>
               </div>
             </Link>
             <Link className="card" to="/login">
               <div className="card-media" style={{background: 'linear-gradient(135deg, #fce7f3, #ffffff)'}}></div>
               <div className="card-body">
-                <h3>Dormitory Assignment</h3>
-                <p>Campus housing allocation and clearance services for residential students.</p>
+                <h3>Campus Housing</h3>
+                <p>Apply for on-campus housing and complete your residential clearance requirements.</p>
               </div>
             </Link>
             <Link className="card" to="/login">
@@ -1033,8 +1069,9 @@ const LandingPageExact: React.FC = () => {
               <h3>Student Life</h3>
               <p>Experience vibrant campus life with diverse student organizations, cultural events, and recreational activities. Our campus provides a supportive environment for academic and personal growth.</p>
               <ul style={{listStyle: 'none', padding: 0, margin: '16px 0'}}>
-                <li style={{padding: '4px 0'}}>🏠 Modern dormitory facilities</li>
-                <li style={{padding: '4px 0'}}>🍽️ Government-subsidized cafeteria</li>
+                <li style={{padding: '4px 0'}}>🏠 Modern residential halls</li>
+                <li style={{padding: '4px 0'}}>🍽️ Government-subsidized dining facilities</li>
+                <li style={{padding: '4px 0'}}>📚 State-of-the-art libraries</li>
                 <li style={{padding: '4px 0'}}>⚽ Sports and recreation centers</li>
                 <li style={{padding: '4px 0'}}>🎭 Cultural and social activities</li>
               </ul>
@@ -1127,8 +1164,8 @@ const LandingPageExact: React.FC = () => {
                   <div className="card-media" style={{background: 'linear-gradient(135deg, #fff2f8, #ffffff)'}}></div>
                   <div className="card-body">
                     <div className="meta" style={{color: '#7a0a2d', fontSize: '12px', fontWeight: '600'}}>December 15, 2024</div>
-                    <h3>Digital Library Resources Expanded</h3>
-                    <p>New digital collections and online databases now available for students and faculty.</p>
+                    <h3>University Libraries Expand Digital Collections</h3>
+                    <p>New digital collections and online databases now available for students and faculty research.</p>
                   </div>
                 </Link>
                 <Link className="card" to="/login">
@@ -1151,8 +1188,8 @@ const LandingPageExact: React.FC = () => {
                     Final exam timetable for Semester I available online
                   </div>
                   <div style={{padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.2)'}}>
-                    <strong>Library Extended Hours</strong><br/>
-                    24/7 access during exam period
+                    <strong>Extended Library Hours</strong><br/>
+                    24/7 access to all university libraries during exam period
                   </div>
                   <div style={{padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.2)'}}>
                     <strong>Graduation Application</strong><br/>
@@ -1197,7 +1234,7 @@ const LandingPageExact: React.FC = () => {
                     Academic Calendar
                   </Link>
                   <Link to="/login" style={{padding: '8px 12px', background: 'var(--muted)', borderRadius: '6px', fontSize: '14px', fontWeight: '500'}}>
-                    Library Resources
+                    University Libraries
                   </Link>
                   <Link to="/login" style={{padding: '8px 12px', background: 'var(--muted)', borderRadius: '6px', fontSize: '14px', fontWeight: '500'}}>
                     Course Catalog
@@ -1400,7 +1437,7 @@ const LandingPageExact: React.FC = () => {
             </div>
             <div style={{marginBottom: '12px'}}>
               <strong>Student Services</strong><br/>
-              ID cards, dormitory, cafeteria, and student support
+              ID cards, housing, dining services, and student support
             </div>
             <div style={{marginBottom: '12px'}}>
               <strong>ICT Directorate</strong><br/>

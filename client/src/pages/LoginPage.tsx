@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import './LoginPage.css';
 
@@ -11,9 +11,8 @@ const LoginPage: React.FC = () => {
   
   const { login, isLoading, error } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = location.state?.from?.pathname || '/dashboard';
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || '/dashboard';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,7 +27,9 @@ const LoginPage: React.FC = () => {
     
     try {
       await login(formData);
-      navigate(from, { replace: true });
+      
+      // Always redirect to /dashboard - the DashboardPage will handle role-based rendering
+      navigate('/dashboard', { replace: true });
     } catch (err) {
       // Error is handled by AuthContext
     }
@@ -40,9 +41,14 @@ const LoginPage: React.FC = () => {
       <header className="login-header">
         <div className="container">
           <Link className="brand" to="/" aria-label="Wachemo University">
-            <img src="/logo2.png" alt="Wachemo University Logo" onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-            }} />
+            <img 
+              src="/logo2.png" 
+              alt="Wachemo University Logo" 
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }} 
+            />
             <span className="name">Wachemo University</span>
           </Link>
         </div>
@@ -54,9 +60,14 @@ const LoginPage: React.FC = () => {
           <div className="login-card">
             <div className="login-header-section">
               <div className="university-logo">
-                <img src="/logo2.png" alt="Wachemo University Logo" onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }} />
+                <img 
+                  src="/logo2.png" 
+                  alt="Wachemo University Logo" 
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }} 
+                />
               </div>
               <h1>Wachemo University</h1>
               <p>Digital Campus Portal</p>
@@ -130,20 +141,17 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Demo Credentials */}
-          <div className="demo-credentials">
-            <h6>Demo Credentials</h6>
-            <div className="credentials-grid">
+          {/* Security Notice */}
+          <div className="security-notice">
+            <div className="notice-content">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
               <div>
-                <span className="label">Student:</span>
-                <span className="value">WCU/2024/001234</span>
-              </div>
-              <div>
-                <span className="label">Faculty:</span>
-                <span className="value">WCU/FAC/001</span>
+                <h6>Secure Access</h6>
+                <p>Your credentials are encrypted and protected. Never share your password with anyone.</p>
               </div>
             </div>
-            <p className="password-note">Password: demo123</p>
           </div>
         </div>
       </main>

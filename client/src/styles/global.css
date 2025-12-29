@@ -18,6 +18,18 @@
   --ethiopia-green: #009639;
   --ethiopia-yellow: #fedd00;
   --ethiopia-red: #da121a;
+  
+  /* Additional variables for compatibility */
+  --maroon: #7a0a2d;
+  --ink: #0e2336;
+  --text: #1b2430;
+  --muted: #f4f6f8;
+  --line: #e9eef2;
+  --container: 1200px;
+  --radius: 12px;
+  --footer: #0f1216;
+  --ui: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --display: "DM Serif Display", Georgia, "Times New Roman", serif;
 }
 
 /* Base styles */

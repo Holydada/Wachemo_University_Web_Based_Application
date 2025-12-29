@@ -6,12 +6,13 @@ import { Toaster } from 'react-hot-toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Import Global CSS
 import './styles/global.css';
+// Import Premium Components CSS
+import './styles/premium-components.css';
 
 // Context Providers
 import { AuthProvider } from './contexts/AuthContext';
 
 // Layout Components
-import Layout from './components/Layout/Layout';
 import ErrorBoundary from './components/UI/ErrorBoundary';
 
 // Public Pages
@@ -20,7 +21,34 @@ import LoginPage from './pages/LoginPage';
 
 // Protected Pages
 import DashboardPage from './pages/Dashboard/DashboardPage';
-import StudentDashboard from './pages/Dashboard/StudentDashboard';
+import OnlineExamination from './pages/OnlineExamination';
+import StudentRegistration from './pages/StudentRegistration';
+import CafeteriaManagement from './pages/CafeteriaManagement';
+import LibraryManagement from './pages/LibraryManagement';
+import StudentIdManagement from './pages/StudentIdManagement';
+import GradeManagement from './pages/GradeManagement';
+import TeacherGradeEntry from './pages/TeacherGradeEntry';
+import NewsManagement from './pages/NewsManagement';
+import ELearningPlatform from './pages/ELearningPlatform';
+import StudentClearance from './pages/StudentClearance';
+import CostSharingAgreement from './pages/CostSharingAgreement';
+import DormitoryManagement from './pages/DormitoryManagement';
+import EPaymentSystem from './pages/EPaymentSystem';
+import StudentBehaviorHistory from './pages/StudentBehaviorHistory';
+import UniversityPartnerships from './pages/UniversityPartnerships';
+import HRManagement from './pages/HRManagement';
+
+// Faculty Components
+import FacultyDashboard from './pages/Faculty/FacultyDashboard';
+import ExamCreation from './pages/Faculty/ExamCreation';
+import CourseManagement from './pages/Faculty/CourseManagement';
+
+// Admin Components
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import UserManagement from './pages/Admin/UserManagement';
+
+// Registrar Components
+import RegistrarDashboard from './pages/Registrar/RegistrarDashboard';
 
 // Components
 import ProtectedRoute from './components/Auth/ProtectedRoute';
@@ -35,35 +63,154 @@ const App: React.FC = () => {
             <Route path="/" element={<LandingPageExact />} />
             <Route path="/login" element={<LoginPage />} />
 
-            {/* Protected Routes with Layout */}
+            {/* Protected Dashboard Route */}
             <Route path="/dashboard" element={
               <ProtectedRoute>
-                <Layout />
+                <DashboardPage />
               </ProtectedRoute>
-            }>
-              <Route index element={<DashboardPage />} />
-              <Route path="student" element={
-                <ProtectedRoute allowedRoles={['student']}>
-                  <StudentDashboard />
-                </ProtectedRoute>
-              } />
-              <Route path="faculty" element={
-                <ProtectedRoute allowedRoles={['faculty', 'department_head', 'dean']}>
-                  <div className="container py-5 text-center">
-                    <h2>👨‍🏫 Faculty Dashboard</h2>
-                    <p>Faculty dashboard coming soon...</p>
-                  </div>
-                </ProtectedRoute>
-              } />
-              <Route path="admin" element={
-                <ProtectedRoute allowedRoles={['admin', 'registrar']}>
-                  <div className="container py-5 text-center">
-                    <h2>⚙️ Admin Dashboard</h2>
-                    <p>Admin dashboard coming soon...</p>
-                  </div>
-                </ProtectedRoute>
-              } />
-            </Route>
+            } />
+
+            {/* Student Routes */}
+            <Route path="/registration" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <StudentRegistration />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/exams" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <OnlineExamination />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/cafeteria" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <CafeteriaManagement />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/grades" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <GradeManagement />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/library" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <LibraryManagement />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/student-id" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <StudentIdManagement />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/dorm" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <DormitoryManagement />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/clearance" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <StudentClearance />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/cost-sharing" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <CostSharingAgreement />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/e-learning" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <ELearningPlatform />
+              </ProtectedRoute>
+            } />
+
+            {/* Teacher/Faculty Routes */}
+            <Route path="/grade-entry" element={
+              <ProtectedRoute allowedRoles={['faculty', 'department_head', 'dean']}>
+                <TeacherGradeEntry />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/faculty-dashboard" element={
+              <ProtectedRoute allowedRoles={['faculty', 'department_head', 'dean']}>
+                <FacultyDashboard />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/exam-creation" element={
+              <ProtectedRoute allowedRoles={['faculty', 'department_head', 'dean']}>
+                <ExamCreation />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/course-management" element={
+              <ProtectedRoute allowedRoles={['faculty', 'department_head', 'dean']}>
+                <CourseManagement />
+              </ProtectedRoute>
+            } />
+
+            {/* Admin Routes */}
+            <Route path="/admin-dashboard" element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/user-management" element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <UserManagement />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/news-management" element={
+              <ProtectedRoute allowedRoles={['admin', 'registrar']}>
+                <NewsManagement />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/partnerships" element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <UniversityPartnerships />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/hr-management" element={
+              <ProtectedRoute allowedRoles={['admin', 'hr_admin']}>
+                <HRManagement />
+              </ProtectedRoute>
+            } />
+
+            {/* Registrar Routes */}
+            <Route path="/registrar-dashboard" element={
+              <ProtectedRoute allowedRoles={['registrar']}>
+                <RegistrarDashboard />
+              </ProtectedRoute>
+            } />
+
+            {/* Student Routes */}
+            <Route path="/payment" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <EPaymentSystem />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/behavior-history" element={
+              <ProtectedRoute allowedRoles={['student']}>
+                <StudentBehaviorHistory />
+              </ProtectedRoute>
+            } />
+
+            {/* Legacy route redirects */}
+            <Route path="/student-dashboard" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/faculty-dashboard" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/admin-dashboard" element={<Navigate to="/dashboard" replace />} />
 
             {/* Catch all route */}
             <Route path="*" element={<Navigate to="/" replace />} />

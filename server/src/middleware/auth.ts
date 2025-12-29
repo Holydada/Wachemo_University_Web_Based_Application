@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { JWTPayload, UserRole, ApiResponse } from '@/types';
-import { executeQuery } from '@/config/database';
+import { query } from '@/config/database';
 import { logSecurity } from '@/utils/logger';
 
 // Extend Express Request interface
@@ -11,8 +11,8 @@ declare global {
     interface Request {
       user?: {
         id: number;
-        wcuId: string;
-        role: UserRole;
+        wcu_id: string;
+        role: string;
         email?: string;
       };
     }
@@ -25,7 +25,7 @@ const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
 
 // Generate JWT Token
 export const generateToken = (payload: Omit<JWTPayload, 'iat' | 'exp'>): string => {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN } as jwt.SignOptions);
 };
 
 // Generate Refresh Token
@@ -54,7 +54,7 @@ export const comparePassword = async (password: string, hash: string): Promise<b
 };
 
 // Authentication Middleware
-export const authenticate = async (req: Request, res: Response, next: NextFunction) => {
+export const authenticate = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const authHeader = req.headers.authorization;
     
@@ -64,18 +64,19 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
         userAgent: req.get('User-Agent') 
       });
       
-      return res.status(401).json({
+      res.status(401).json({
         success: false,
         message: 'Access token required',
         timestamp: new Date(),
       } as ApiResponse);
+      return;
     }
 
     const token = authHeader.substring(7); // Remove 'Bearer ' prefix
     const decoded = verifyToken(token);
 
     // Verify user still exists and is active
-    const users = await executeQuery(
+    const users = await query(
       'SELECT id, wcu_id, email, role, status FROM users WHERE id = ? AND status = ?',
       [decoded.userId, 'active']
     );
@@ -86,35 +87,36 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
         ip: req.ip,
       });
       
-      return res.status(401).json({
+      res.status(401).json({
         success: false,
         message: 'User not found or account inactive',
         timestamp: new Date(),
       } as ApiResponse);
+      return;
     }
 
     const user = users[0];
     req.user = {
       id: user.id,
-      wcuId: user.wcu_id,
+      wcu_id: user.wcu_id,
       role: user.role,
       email: user.email,
     };
 
     // Update last login
-    await executeQuery(
+    await query(
       'UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?',
       [user.id]
     );
 
     next();
-  } catch (error) {
+  } catch (error: any) {
     logSecurity('Authentication failed - Token verification error', undefined, {
-      error: error.message,
+      error: error?.message || 'Unknown error',
       ip: req.ip,
     });
     
-    return res.status(401).json({
+    res.status(401).json({
       success: false,
       message: 'Invalid or expired token',
       timestamp: new Date(),
@@ -123,14 +125,15 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
 };
 
 // Authorization Middleware
-export const authorize = (...allowedRoles: UserRole[]) => {
-  return (req: Request, res: Response, next: NextFunction) => {
+export const authorize = (...allowedRoles: string[]) => {
+  return (req: Request, res: Response, next: NextFunction): void => {
     if (!req.user) {
-      return res.status(401).json({
+      res.status(401).json({
         success: false,
         message: 'Authentication required',
         timestamp: new Date(),
       } as ApiResponse);
+      return;
     }
 
     if (!allowedRoles.includes(req.user.role)) {
@@ -140,11 +143,12 @@ export const authorize = (...allowedRoles: UserRole[]) => {
         resource: req.path,
       });
       
-      return res.status(403).json({
+      res.status(403).json({
         success: false,
         message: 'Insufficient permissions',
         timestamp: new Date(),
       } as ApiResponse);
+      return;
     }
 
     next();
@@ -152,12 +156,12 @@ export const authorize = (...allowedRoles: UserRole[]) => {
 };
 
 // Role-based access control helper
-export const hasPermission = (userRole: UserRole, requiredRoles: UserRole[]): boolean => {
+export const hasPermission = (userRole: string, requiredRoles: string[]): boolean => {
   return requiredRoles.includes(userRole);
 };
 
 // Check if user can access student data
-export const canAccessStudentData = (userRole: UserRole, targetStudentId?: number, currentUserId?: number): boolean => {
+export const canAccessStudentData = (userRole: string, targetStudentId?: number, currentUserId?: number): boolean => {
   // Admin and registrar can access all student data
   if (['admin', 'registrar'].includes(userRole)) {
     return true;
@@ -178,16 +182,17 @@ export const canAccessStudentData = (userRole: UserRole, targetStudentId?: numbe
 };
 
 // Middleware to check student data access
-export const checkStudentAccess = async (req: Request, res: Response, next: NextFunction) => {
+export const checkStudentAccess = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const studentId = parseInt(req.params.studentId || req.body.studentId);
     
     if (!studentId) {
-      return res.status(400).json({
+      res.status(400).json({
         success: false,
         message: 'Student ID required',
         timestamp: new Date(),
       } as ApiResponse);
+      return;
     }
 
     if (!canAccessStudentData(req.user!.role, studentId, req.user!.id)) {
@@ -196,16 +201,17 @@ export const checkStudentAccess = async (req: Request, res: Response, next: Next
         userRole: req.user!.role,
       });
       
-      return res.status(403).json({
+      res.status(403).json({
         success: false,
         message: 'Access denied to student data',
         timestamp: new Date(),
       } as ApiResponse);
+      return;
     }
 
     next();
-  } catch (error) {
-    return res.status(500).json({
+  } catch (error: any) {
+    res.status(500).json({
       success: false,
       message: 'Error checking student access',
       timestamp: new Date(),
@@ -214,7 +220,7 @@ export const checkStudentAccess = async (req: Request, res: Response, next: Next
 };
 
 // Optional authentication (for public endpoints that can benefit from user context)
-export const optionalAuth = async (req: Request, res: Response, next: NextFunction) => {
+export const optionalAuth = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const authHeader = req.headers.authorization;
     
@@ -222,7 +228,7 @@ export const optionalAuth = async (req: Request, res: Response, next: NextFuncti
       const token = authHeader.substring(7);
       const decoded = verifyToken(token);
       
-      const users = await executeQuery(
+      const users = await query(
         'SELECT id, wcu_id, email, role, status FROM users WHERE id = ? AND status = ?',
         [decoded.userId, 'active']
       );
@@ -231,7 +237,7 @@ export const optionalAuth = async (req: Request, res: Response, next: NextFuncti
         const user = users[0];
         req.user = {
           id: user.id,
-          wcuId: user.wcu_id,
+          wcu_id: user.wcu_id,
           role: user.role,
           email: user.email,
         };
@@ -239,7 +245,7 @@ export const optionalAuth = async (req: Request, res: Response, next: NextFuncti
     }
     
     next();
-  } catch (error) {
+  } catch (error: any) {
     // Continue without authentication for optional auth
     next();
   }
